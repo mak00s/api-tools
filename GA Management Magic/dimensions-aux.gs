@@ -75,15 +75,18 @@ function formatDimensionSheet(createNew) {
     sheet.getRange("C1").setValue("Name");
     sheet.getRange("D1").setValue("Index");
     sheet.getRange("E1").setValue("Scope");
-    sheet.getRange("F1").setValue("Active");
+    sheet.getRange("F1").setValue("Active").setHorizontalAlignment('center');
+    sheet.setColumnWidth(1, 58);
+    sheet.setColumnWidth(3, 160);
+    sheet.setColumnWidth(4, 40);
     headerRange.setFontWeight("bold");
-    headerRange.setBackground("#4285F4");
-    headerRange.setFontColor("#FFFFFF");
+    // Freeze the header
+    ss.setFrozenRows(1);
     
     // Index Column: protect & set background & font color
     indexCol.protect().setDescription("prevent others from modifying the dimension indices");
-    indexCol.setBackground("#BABABA");
-    indexCol.setFontColor("#FFFFFF");
+    indexCol.setBackground("#F3F3F3");
+    indexCol.setFontColor("#999999");
     
     // Include Column: modify data validation values
     var includeValues = ['✓'];

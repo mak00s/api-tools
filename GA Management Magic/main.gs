@@ -17,35 +17,35 @@ function onOpen(e) {
     var menu = ui.createAddonMenu();
     if (e && e.authMode == ScriptApp.AuthMode.NONE) {
       // Add a normal menu item (works in all authorization modes).
-      menu.addItem('List filters', 'requestFilterList')
-      .addItem('Update filters', 'requestFilterUpdate')
+      menu.addItem('List Filters', 'requestFilterList')
+      .addItem('Update Filters', 'requestFilterUpdate')
       .addSeparator()
-      .addItem('List custom dimensions', 'requestDimensionList')
-      .addItem('Update custom dimensions', 'requestDimensionUpdate')
+      .addItem('List Custom Dimensions', 'requestDimensionList')
+      .addItem('Update Custom Dimensions', 'requestDimensionUpdate')
       .addSeparator()
-      .addItem('List custom metrics', 'requestMetricList')
-      .addItem('Update custom metrics', 'requestMetricUpdate')
-      .addSeparator()
-      .addItem('Format filter sheet', 'formatFilterSheet')
-      .addItem('Format dimension sheet', 'formatDimensionSheet')
-      .addItem('Format metric sheet', 'formatMetricSheet')
+      .addItem('List Custom Metrics', 'requestMetricList')
+      .addItem('Update Custom Metrics', 'requestMetricUpdate')
+      //.addSeparator()
+      //.addItem('Format filter sheet', 'formatFilterSheet')
+      //.addItem('Format dimension sheet', 'formatDimensionSheet')
+      //.addItem('Format metric sheet', 'formatMetricSheet')
       .addSeparator()
       .addItem('About this Add-on','about');
     } else {
-      menu.addItem('List filters', 'requestFilterList')
-      .addItem('Update filters', 'requestFilterUpdate')
+      menu.addItem('List Filters', 'requestFilterList')
+      .addItem('Update Filters', 'requestFilterUpdate')
       .addSeparator()
-      .addItem('List custom dimensions', 'requestDimensionList')
-      .addItem('Update custom dimensions', 'requestDimensionUpdate')
+      .addItem('List Custom Dimensions', 'requestDimensionList')
+      .addItem('Update Custom Dimensions', 'requestDimensionUpdate')
       .addSeparator()
-      .addItem('List custom metrics', 'requestMetricList')
-      .addItem('Update custom metrics', 'requestMetricUpdate')
+      .addItem('List Custom Metrics', 'requestMetricList')
+      .addItem('Update Custom Metrics', 'requestMetricUpdate')
+      //.addSeparator()
+      //.addItem('Format filter sheet', 'formatFilterSheet')
+      //.addItem('Format dimension sheet', 'formatDimensionSheet')
+      //.addItem('Format metric sheet', 'formatMetricSheet')
       .addSeparator()
-      .addItem('Format filter sheet', 'formatFilterSheet')
-      .addItem('Format dimension sheet', 'formatDimensionSheet')
-      .addItem('Format metric sheet', 'formatMetricSheet')
-      .addSeparator()
-      .addItem('About this Add-on','about');  
+      .addItem('Help','about');  
     }
     menu.addToUi();
 

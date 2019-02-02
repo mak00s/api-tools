@@ -77,17 +77,22 @@ function formatMetricSheet(createNew) {
     sheet.getRange("D1").setValue("Index");
     sheet.getRange("E1").setValue("Scope");
     sheet.getRange("F1").setValue("Formatting Type");
-    sheet.getRange("G1").setValue("Min");
-    sheet.getRange("H1").setValue("Max");
-    sheet.getRange("I1").setValue("Active");
+    sheet.getRange("G1").setValue("Min").setHorizontalAlignment('center');
+    sheet.getRange("H1").setValue("Max").setHorizontalAlignment('center');
+    sheet.getRange("I1").setValue("Active").setHorizontalAlignment('center');
+    sheet.setColumnWidth(1, 58);
+    sheet.setColumnWidth(3, 147);
+    sheet.setColumnWidth(4, 40);
+    sheet.setColumnWidth(7, 60);
+    sheet.setColumnWidth(8, 60);
     headerRange.setFontWeight("bold");
-    headerRange.setBackground("#4285F4");
-    headerRange.setFontColor("#FFFFFF");
+    // Freeze the header
+    ss.setFrozenRows(1);
     
     // Index Column: protect & set background & font color
     indexCol.protect().setDescription("prevent others from modifying the metric indices");
-    indexCol.setBackground("#BABABA");
-    indexCol.setFontColor("#FFFFFF");
+    indexCol.setBackground("#F3F3F3");
+    indexCol.setFontColor("#999999");
     
     // Include Column: modify data validation values
     var includeValues = ['✓'];

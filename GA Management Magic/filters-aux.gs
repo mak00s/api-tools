@@ -76,8 +76,8 @@ function formatFilterSheet(createNew) {
   try {
     var headerRange = sheet.getRange(1,1,1,sheet.getMaxColumns());
     sheet.getRange("A1").setValue("Include");
-    sheet.getRange("B1").setValue("Account");
-    sheet.getRange("C1").setValue("ID");
+    sheet.getRange("B1").setValue("Account").setHorizontalAlignment('right');
+    sheet.getRange("C1").setValue("ID").setHorizontalAlignment('right');
     sheet.getRange("D1").setValue("Name");
     sheet.getRange("E1").setValue("Type");
     sheet.getRange("F1").setValue("field");
@@ -95,14 +95,23 @@ function formatFilterSheet(createNew) {
     sheet.getRange("R1").setValue("outputConstructor");
     sheet.getRange("S1").setValue("overrideOutputField");
     sheet.getRange("T1").setValue("caseSensitive");
+    ss.setColumnWidth(1, 58);
+    ss.setColumnWidth(2, 71);
+    ss.setColumnWidth(3, 73);
+    ss.setColumnWidth(4, 147);
+    ss.setColumnWidth(5, 120);
+    ss.setColumnWidth(6, 152);
+    ss.setColumnWidth(11, 144);
+    ss.setColumnWidth(14, 138);
+    ss.setColumnWidth(17, 140);
     headerRange.setFontWeight("bold");
-    headerRange.setBackground("#4285F4");
-    headerRange.setFontColor("#FFFFFF");
+    // Freeze the header
+    ss.setFrozenRows(1);
     
     // Index Column: protect & set background & font color.
     idCol.protect().setDescription("prevent others from modifying the ids");
-    idCol.setBackground("#BABABA");
-    idCol.setFontColor("#FFFFFF");
+    idCol.setBackground("#F3F3F3");
+    idCol.setFontColor("#999999");
     
     // Include Column: modify data validation values.
     var includeValues = ['✓'];
