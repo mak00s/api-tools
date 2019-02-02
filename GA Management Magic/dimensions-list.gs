@@ -89,7 +89,9 @@ function listDimensions(propertyList) {
   try {    
     // Set the values in the sheet
     var sheet = formatDimensionSheet(true);
-    sheet.getRange(2,1,allDimensions.length,dataColumns).setValues(allDimensions);
+    if (dimensionList.totalResults > 0) {
+      sheet.getRange(2,1,allDimensions.length,dataColumns).setValues(allDimensions);
+    }
   } catch (e) {
     return e.message;
   }

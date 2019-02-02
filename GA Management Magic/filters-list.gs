@@ -60,6 +60,8 @@ function listFilters(accountList) {
     
     // Process an account id if it matches a valid format.
     if (account.match(/\d+/)) {
+      // Attempt to extract the account from the property id
+      account = account.match(/-?(\d+)/)[1];
       
       // Attempt to get filters from the Management API.
       try {
@@ -165,7 +167,9 @@ function listFilters(accountList) {
   // Attempt to insert the values processed from the API into the sheet
   try {
     var sheet = ss.getSheetByName(formatFilterSheet(true));
-    sheet.getRange(2,1,allFilters.length,allFilters[0].length).setValues(allFilters);
+    if (filterList.totalResults > 0) {
+      sheet.getRange(2,1,allFilters.length,allFilters[0].length).setValues(allFilters);
+    }
   } catch (e) {return "Error writing data to sheet: "+ e.message;}
   
   // send Measurement Protocol hit to Google Analytics

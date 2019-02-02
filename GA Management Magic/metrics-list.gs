@@ -89,7 +89,9 @@ function listMetrics(propertyList) {
   try {    
     // Set the values in the sheet
     var sheet = formatMetricSheet(true);
-    sheet.getRange(2,1,allMetrics.length,dataColumns).setValues(allMetrics);
+    if (metricList.totalResults > 0) {
+      sheet.getRange(2,1,allMetrics.length,dataColumns).setValues(allMetrics);
+    }
   } catch (e) {
     return e.message;
   }
